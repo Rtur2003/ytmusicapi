@@ -40,7 +40,7 @@ def compile_mo_file(locale_dir: Path) -> bool:
         return True
 
     try:
-        result = subprocess.run(
+        subprocess.run(
             [
                 "msgfmt",
                 "-o",

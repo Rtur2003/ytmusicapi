@@ -39,7 +39,7 @@ def update_po_file(locale_dir: Path, pot_file: Path) -> bool:
         return True
 
     try:
-        result = subprocess.run(
+        subprocess.run(
             [
                 "msgmerge",
                 "--update",
