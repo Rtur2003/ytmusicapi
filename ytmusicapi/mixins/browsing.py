@@ -944,7 +944,7 @@ class BrowsingMixin(MixinProtocol):
                 hasTimestamps=False,
             )
 
-        return cast(Lyrics | TimedLyrics, lyrics)
+        return lyrics
 
     def get_basejs_url(self) -> str:
         """
