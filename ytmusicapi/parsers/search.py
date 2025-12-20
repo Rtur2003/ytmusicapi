@@ -184,6 +184,8 @@ def parse_search_result(data: JsonDict, result_type: str | None, category: str |
         search_result["duration"] = None
         search_result["year"] = None
         flex_item = get_flex_column_item(data, 1)
+        if flex_item is None:
+            return search_result
         runs = flex_item["text"]["runs"]
         if flex_item2 := get_flex_column_item(data, 2):
             runs.extend([{"text": ""}, *flex_item2["text"]["runs"]])  # first item is a dummy separator
