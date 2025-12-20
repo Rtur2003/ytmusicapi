@@ -111,8 +111,10 @@ class YTMusicBase:
                         "Please provide oauth_credentials as specified in the OAuth setup documentation."
                     )
                 #: OAuth credential handler
+                # _auth_headers is CaseInsensitiveDict containing OAuth token fields
+                # that unpack correctly to Token dataclass kwargs at runtime, but mypy can't verify this
                 self._token = RefreshingToken(
-                    credentials=oauth_credentials, _local_cache=auth_path, **self._auth_headers
+                    credentials=oauth_credentials, _local_cache=auth_path, **self._auth_headers  # type: ignore[arg-type]
                 )
 
         # prepare context
