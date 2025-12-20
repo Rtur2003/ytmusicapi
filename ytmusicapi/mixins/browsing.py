@@ -1,6 +1,6 @@
 import re
 import warnings
-from typing import Literal, cast, overload
+from typing import Literal, overload
 
 from ytmusicapi.continuations import (
     get_continuations,
