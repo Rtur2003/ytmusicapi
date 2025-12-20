@@ -1,6 +1,6 @@
 import re
 import warnings
-from typing import Literal, cast, overload
+from typing import Literal, overload
 
 from ytmusicapi.continuations import (
     get_continuations,
@@ -356,7 +356,7 @@ class BrowsingMixin(MixinProtocol):
         albums = parse_albums(contents)
 
         results = nav(results, GRID, True)
-        if "continuations" in results:
+        if results is not None and "continuations" in results:
             remaining_limit = None if limit is None else (limit - len(albums))
             albums.extend(
                 get_continuations(results, "gridContinuation", remaining_limit, request_func, parse_func)
@@ -944,7 +944,7 @@ class BrowsingMixin(MixinProtocol):
                 hasTimestamps=False,
             )
 
-        return cast(Lyrics | TimedLyrics, lyrics)
+        return lyrics
 
     def get_basejs_url(self) -> str:
         """

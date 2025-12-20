@@ -27,6 +27,10 @@ Copy the base template:
 Update translation
 ------------------
 
+``cd locales && python update_po.py``
+
+Or using the shell script (deprecated):
+
 ``cd locales && ./update_po.sh``
 
 Edit translation
@@ -36,5 +40,9 @@ You can use POEdit or edit the .po file manually
 Finalize translation
 ---------------------
 To generate mo files, run
+
+``cd locales && python update_mo.py``
+
+Or using the shell script (deprecated):
 
 ``cd locales && ./update_mo.sh``
